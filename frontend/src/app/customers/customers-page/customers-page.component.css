@@ -1,0 +1,30 @@
+.main-wrap{
+  margin-left: 5rem;
+  padding: 2rem;
+  height: 100vh;
+  background-color: rgb(240, 240, 240);
+}
+
+
+
+span{
+  margin-right: 1.5rem;
+}
+
+i{
+  margin-right: .5rem;
+  cursor: pointer;
+}
+
+.table{
+  background-color: white;
+  border-radius: .5rem;
+
+}
+
+
+tr{
+  border: .5px solid rgb(214, 214, 214);
+  border-left: none;
+  border-right: none;
+}

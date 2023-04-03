@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TicketNavbarComponent } from './ticket-navbar/ticket-navbar.component';
+import { TitleComponent } from './title/title.component';
 
 
 
@@ -13,7 +14,8 @@ import { TicketNavbarComponent } from './ticket-navbar/ticket-navbar.component';
     NavbarComponent,
     FooterComponent,
     SidebarComponent,
-    TicketNavbarComponent
+    TicketNavbarComponent,
+    TitleComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { TicketNavbarComponent } from './ticket-navbar/ticket-navbar.component';
   exports: [
     NavbarComponent,
     SidebarComponent,
-    TicketNavbarComponent
+    TicketNavbarComponent,
+    TitleComponent
   ]
 })
 export class SharedModule { }

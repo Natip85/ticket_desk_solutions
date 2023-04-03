@@ -9,6 +9,9 @@ import { HomeModule } from './home/home.module';
 import { PortalModule } from './portal/portal.module';
 import { SearchModule } from './search/search.module';
 import { SharedModule } from './shared/shared.module';
+import { CustomersModule } from './customers/customers.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     SearchModule,
     SharedModule,
-    PortalModule
+    PortalModule,
+    CustomersModule,
+    DashboardModule,
+    EmployeesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

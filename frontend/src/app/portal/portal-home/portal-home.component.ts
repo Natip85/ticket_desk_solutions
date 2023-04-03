@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./portal-home.component.css']
 })
 export class PortalHomeComponent {
-
+  sectionTitle = 'Tickets'
 }

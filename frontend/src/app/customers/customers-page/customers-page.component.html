@@ -1,0 +1,69 @@
+<app-ticket-navbar></app-ticket-navbar>
+
+<app-sidebar></app-sidebar>
+
+<div class="main-wrap">
+<app-title [text]="sectionTitle"></app-title>
+
+  <div class="">
+<form [formGroup]="addcustomerForm" (ngSubmit)="onSubmit()" class="row mb-4">
+
+  <div class="col-2 m-3">
+    <input formControlName="fName" type="text" class="form-control" placeholder="First Name">
+  </div>
+  <div class="col-2 m-3">
+    <input formControlName="lName" type="text" class="form-control" placeholder="Last Name">
+  </div>
+  <div class="col-2 m-3">
+    <input formControlName="email" type="text" class="form-control" placeholder="Email">
+  </div>
+  <div class="col-2 m-3">
+    <input formControlName="phone" type="text" class="form-control" placeholder="Phone">
+  </div>
+  <div class="col-2 m-3">
+    <input formControlName="address" type="text" class="form-control" placeholder="Address">
+  </div>
+
+  <div class="w-100 d-flex justify-content-center">
+    <button [disabled]="addcustomerForm.invalid" type="submit" class="btn btn-primary w-25"><i class="bi bi-plus-circle-fill"></i>Add customer</button>
+  </div>
+</form>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <th>No.</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers" >
+      <td> <span>2</span>
+        <span>
+        <i routerLink="/selectedCustomer/{{customer._id}}" class="bi bi-eye"></i>
+        </span>
+        <span>
+        <i routerLink="/edit-customer/{{customer._id}}" class="bi bi-pencil"></i>
+        </span>
+        <span>
+        <i (click)="onDelete(customer)" class="bi bi-trash"></i>
+        </span>
+      </td>
+      <td >{{customer.fName}} </td>
+      <td >{{customer.lName}} </td>
+      <td >{{customer.email}} </td>
+      <td >{{customer.phone}} </td>
+      <td >{{customer.address}} </td>
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+

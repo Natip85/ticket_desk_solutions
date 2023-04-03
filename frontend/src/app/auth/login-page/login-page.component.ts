@@ -44,7 +44,7 @@ export class LoginPageComponent {
 
     this.api.login(this.loginForm.value).subscribe({
       next: (data) => {
-        this.router.navigate(['portalHome']);
+        this.router.navigate(['dashboard']);
       },
       error: (err) => {
         console.log(err.error)
