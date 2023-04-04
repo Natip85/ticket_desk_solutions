@@ -9,6 +9,7 @@ import { Customer } from 'src/app/shared/interfaces/ICustomer';
 })
 export class CustomersPageComponent implements OnInit {
   @Input() sectionTitle = 'Customers'
+  @Input() sectionIcon = 'fa-solid fa-users-viewfinder'
   customers: Array<Customer> = [];
 
   addcustomerForm = new FormGroup({

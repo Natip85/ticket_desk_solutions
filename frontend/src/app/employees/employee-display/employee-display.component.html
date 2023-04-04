@@ -1,0 +1,32 @@
+<table class="table table-hover">
+  <thead>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Birthday</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees" >
+      <!-- <td> <span>2</span>
+        <span>
+        <i routerLink="/selectedCustomer/{{customer._id}}" class="bi bi-eye"></i>
+        </span>
+        <span>
+        <i routerLink="/edit-customer/{{customer._id}}" class="bi bi-pencil"></i>
+        </span>
+        <span>
+        <i (click)="onDelete(customer)" class="bi bi-trash"></i>
+        </span>
+      </td> -->
+      <td >2 </td>
+      <td >{{employee.name}} </td>
+      <td >{{employee.email}} </td>
+      <td >{{employee.phone}} </td>
+      <td >{{employee.bDay}} </td>
+
+
+
+    </tr>
+  </tbody>
+</table>

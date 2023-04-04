@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../shared/interfaces/IUserSignup';
-import { ADD_CUSTOMER_URL, BASE_URL, USER_LOGIN_URL, USER_REGISTER_URL} from '../shared/constants/urls'
+import { ADD_CUSTOMER_URL, BASE_URL, EMPLOYEES_URL, EMPLOYEE_BY_SEARCH_URL, USER_LOGIN_URL, USER_REGISTER_URL} from '../shared/constants/urls';
 import { Customer } from '../shared/interfaces/ICustomer';
+import { Employee } from '../shared/interfaces/IEmployee';
 
 @Injectable({
   providedIn: 'root'
@@ -80,5 +81,17 @@ export class ApiService {
             }
         )
     }
+
+    getEmployees(): Observable<Array<Employee>> {
+    return this.GET<Array<Employee>>(EMPLOYEES_URL);
+  }
+
+    getAllEmployeesBySearchTerm(searchTerm: string){
+    return this.http.get<Array<Employee>>(EMPLOYEE_BY_SEARCH_URL + searchTerm);
+  }
+
+  addEmployee(employee: Employee): Observable<Employee> {
+        return this.POST<Employee>(EMPLOYEES_URL, employee);
+  }
 
 }

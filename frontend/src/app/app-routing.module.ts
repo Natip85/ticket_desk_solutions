@@ -9,6 +9,7 @@ import { DashboardPageComponent } from './dashboard/dashboard-page/dashboard-pag
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 import { SelectedCustomerComponent } from './customers/selected-customer/selected-customer.component';
 import { EmployeesPageComponent } from './employees/employees-page/employees-page.component';
+import { EmployeeDisplayComponent } from './employees/employee-display/employee-display.component';
 
 const routes: Routes = [
   {path: "", component: HomePageComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardPageComponent},
   { path: 'edit-customer/:id', component: EditCustomerComponent },
   { path: 'selectedCustomer/:id', component: SelectedCustomerComponent },
-  { path: 'employees', component: EmployeesPageComponent }
+  { path: 'employees', component: EmployeesPageComponent },
+  {path: 'search/:searchTerm', component: EmployeeDisplayComponent}
 ];
 
 @NgModule({

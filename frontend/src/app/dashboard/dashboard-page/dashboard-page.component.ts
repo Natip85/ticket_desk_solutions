@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class DashboardPageComponent {
   @Input() sectionTitle = 'Dashboard'
+  @Input() sectionIcon = 'bi bi-speedometer'
 }
