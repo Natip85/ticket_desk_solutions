@@ -50,6 +50,7 @@ export class SignupPageComponent implements AfterViewInit{
 
     this.api.signup(this.signupForm.value).subscribe({
       next: (data) => {
+
         this.router.navigate(['login']);
       },
       error: (err) => {

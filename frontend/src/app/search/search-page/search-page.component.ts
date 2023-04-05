@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/core/api.service';
 
 @Component({
   selector: 'app-search-page',
@@ -10,7 +11,7 @@ export class SearchPageComponent implements OnInit {
 
   searchTerm = ''
 
-  constructor(activatedRoute: ActivatedRoute, private router: Router){
+  constructor(activatedRoute: ActivatedRoute, private router: Router, private api: ApiService){
 
     activatedRoute.params.subscribe((params)=>{
       if(params.searchTerm) this.searchTerm=params.searchTerm
@@ -18,7 +19,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.api.getEmployees()
   }
 
   search(term:string){

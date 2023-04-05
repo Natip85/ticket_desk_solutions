@@ -25,7 +25,7 @@
   </div>
 
   <div class="w-100 d-flex justify-content-center">
-    <button [disabled]="addcustomerForm.invalid" type="submit" class="btn btn-primary w-25"><i class="bi bi-plus-circle-fill"></i>Add customer</button>
+    <button [disabled]="addcustomerForm.invalid" type="submit" class="btn btn-primary w-25 cust-btn"><i class="bi bi-plus-circle-fill"></i>Add customer</button>
   </div>
 </form>
 </div>
@@ -40,16 +40,16 @@
     <th>Address</th>
   </thead>
   <tbody>
-    <tr *ngFor="let customer of customers" >
-      <td> <span>2</span>
+    <tr *ngFor="let customer of customers; let i = index" >
+      <td> <span>{{i+1}}</span>
         <span>
-        <i routerLink="/selectedCustomer/{{customer._id}}" class="bi bi-eye"></i>
+        <i routerLink="/selectedCustomer/{{customer._id}}" class="bi bi-eye text-success"></i>
         </span>
         <span>
-        <i routerLink="/edit-customer/{{customer._id}}" class="bi bi-pencil"></i>
+        <i routerLink="/edit-customer/{{customer._id}}" class="bi bi-pencil text-primary"></i>
         </span>
         <span>
-        <i (click)="onDelete(customer)" class="bi bi-trash"></i>
+        <i (click)="onDelete(customer)" class="bi bi-trash text-danger"></i>
         </span>
       </td>
       <td >{{customer.fName}} </td>

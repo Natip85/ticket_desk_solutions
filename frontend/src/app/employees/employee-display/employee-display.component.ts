@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/api.service';
@@ -9,7 +9,10 @@ import { Employee } from 'src/app/shared/interfaces/IEmployee';
   templateUrl: './employee-display.component.html',
   styleUrls: ['./employee-display.component.css']
 })
-export class EmployeeDisplayComponent {
+export class EmployeeDisplayComponent implements OnInit {
+
+  sectionTitle = 'Employees'
+  sectionIcon = 'bi bi-headset'
 
   employees: Array<Employee> = [];
 
@@ -31,4 +34,11 @@ export class EmployeeDisplayComponent {
   })
   }
 
+  getAllEmployees(){
+    return this.api.getEmployees()
+  }
+
+  ngOnInit(): void {
+    this.getAllEmployees()
+  }
 }

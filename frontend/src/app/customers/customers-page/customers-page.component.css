@@ -2,10 +2,8 @@
   margin-left: 5rem;
   padding: 2rem;
   height: 100vh;
-  background-color: rgb(240, 240, 240);
+  background-color: #EBEFF3;
 }
-
-
 
 span{
   margin-right: 1.5rem;
@@ -16,15 +14,28 @@ i{
   cursor: pointer;
 }
 
-.table{
-  background-color: white;
-  border-radius: .5rem;
-
-}
-
-
 tr{
   border: .5px solid rgb(214, 214, 214);
   border-left: none;
   border-right: none;
+}
+
+table {
+  background-color: white;
+  border-radius: .5rem;
+}
+
+td {
+  padding: 1rem;
+}
+
+thead {
+  padding: 1rem;
+  height: 4rem;
+  background-color: #F5F7F9;
+
+}
+
+.cust-btn{
+  background-color: #12344D;
 }

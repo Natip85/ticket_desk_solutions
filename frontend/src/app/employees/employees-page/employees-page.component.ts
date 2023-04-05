@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/api.service';
 import { Employee } from 'src/app/shared/interfaces/IEmployee';
 
@@ -10,7 +8,7 @@ import { Employee } from 'src/app/shared/interfaces/IEmployee';
   templateUrl: './employees-page.component.html',
   styleUrls: ['./employees-page.component.css']
 })
-export class EmployeesPageComponent {
+export class EmployeesPageComponent implements OnInit {
   sectionTitle = 'Employees'
   sectionIcon = 'bi bi-headset'
 
@@ -44,6 +42,11 @@ export class EmployeesPageComponent {
         })
     })
 
+    ngOnInit(): void {
+        this.getAllEmployees();
+
+    }
+
     constructor(private api: ApiService){}
 
     onSubmit(){
@@ -70,9 +73,6 @@ export class EmployeesPageComponent {
         })
     }
 
-    ngOnInit(): void {
-        this.getAllEmployees();
 
-    }
 
 }

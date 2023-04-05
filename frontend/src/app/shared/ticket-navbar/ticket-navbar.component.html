@@ -5,11 +5,13 @@
     All tickets
   </div>
   <div class="ticket-search">
+    <a routerLink="/newTicket">
     <button class="add-a-new">
       <i class="fa-regular fa-square-plus plusBtn"></i>
       New
-      <i class="fa-solid fa-angle-down"></i>
+      <!-- <i class="fa-solid fa-angle-down"></i> -->
     </button>
+    </a>
     <hr class="btn-seperator">
     <ul class="topbar-ul">
       <li  class="topbar-li">
@@ -20,7 +22,29 @@
         <i class="fa-solid fa-bell"></i>
       </li>
     </ul>
-    <div class="avatar">N</div>
+
+    <div class="acc-dropdown">
+    <div  (click)="toggleAcc()" class="avatar">N</div>
+
+    <div class="dropdown-wrap" *ngIf="showForm">
+          <table>
+            <thead>
+              <tr>
+                <th>Nati Peretz</th>
+              </tr>
+              <tr>
+                <th class="emailDropdown">nat@gmial.com</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td > <p class="logoutTd" (click)="logout()">Sign out</p> </td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+    </div>
   </div>
 
 </nav>

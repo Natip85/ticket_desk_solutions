@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/api.service';
+import { AuthService } from 'src/app/core/auth.service';
+import { User } from 'src/app/shared/interfaces/IUserSignup';
 
 @Component({
   selector: 'app-login-page',
@@ -9,6 +11,8 @@ import { ApiService } from 'src/app/core/api.service';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+
+
 
   @ViewChild('emailFieldRef') emailField!: ElementRef;
 
@@ -30,7 +34,7 @@ export class LoginPageComponent {
     return this.loginForm.get(field) as FormControl;
   }
 
-  constructor(private api: ApiService, private router: Router){}
+  constructor(private api: ApiService, private router: Router, private auth: AuthService){}
 
 
   errs={
@@ -44,7 +48,8 @@ export class LoginPageComponent {
 
     this.api.login(this.loginForm.value).subscribe({
       next: (data) => {
-        this.router.navigate(['dashboard']);
+         if (data.token) this.api.setToken(data.token)
+          this.router.navigate([this.auth.redirectUrl]);
       },
       error: (err) => {
         console.log(err.error)

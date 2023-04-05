@@ -82,4 +82,21 @@ router.post('/login', async (req, res)=>{
   }
 });
 
+/*
+* GET http://localhost:3001/api/users/myUser
+*/
+router.get('/myUser',verify_logged_in, async (req, res)=>{
+ try {
+    const decoded = req.user;
+    console.log(decoded);
+    const currentUser = await User.findById(decoded.id);
+    res.status(200).json({ status: 'Success', 'user details': currentUser });
+  } catch (err) {
+    res.status(404).json({
+      status: 'Fail',
+      message: err.message
+    });
+  }
+});
+
 module.exports = router;

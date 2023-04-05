@@ -49,14 +49,15 @@
 }
 
 .add-a-new{
-  background-color: rgb(226, 226, 226);
+  background-color:#EBEFF3;
   width: 6rem;
   border-radius: .3rem;
   border: 1px solid gray;
+  height: 2rem;
 }
 
 .add-a-new:hover{
-  background-color: rgb(210, 208, 208);
+  background-color:  #e2e2e2;
 }
 .plusBtn{
   margin-right: .2rem;
@@ -68,6 +69,7 @@
   /* background-color: yellow; */
   padding: 2px;
   width: 30rem;
+  align-items: center;
 }
 
 .search-input{
@@ -126,8 +128,64 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 2rem;
 }
 
 .avatar:hover{
   cursor: pointer;
+}
+
+
+.acc-dropdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dropdown-wrap{
+  position: absolute;
+  background-color: #EBEFF3;
+  top: 2.5rem;
+  right: 1rem;
+  width: 15rem;
+  box-shadow: 2px 3px 15px 1px rgb(168, 168, 168);
+}
+
+.logoutTd{
+  cursor: pointer;
+}
+
+table{
+  width: 100%;
+}
+
+thead{
+  height: 4rem;
+
+}
+
+tbody{
+  height: 5rem;
+
+}
+
+th{
+  background-color: #EBEFF3;
+  padding: .5rem;
+}
+tr{
+  background-color: white;
+
+}
+
+td{
+  padding: .5rem;
+}
+
+.emailDropdown{
+  font-weight: 400;
+  font-size: .8rem;
+  color: rgb(116, 116, 116);
 }

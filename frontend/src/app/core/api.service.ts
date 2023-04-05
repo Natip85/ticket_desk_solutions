@@ -2,16 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../shared/interfaces/IUserSignup';
-import { ADD_CUSTOMER_URL, BASE_URL, EMPLOYEES_URL, EMPLOYEE_BY_SEARCH_URL, USER_LOGIN_URL, USER_REGISTER_URL} from '../shared/constants/urls';
+import { BASE_URL, CUSTOMER_URL, EMPLOYEES_URL, EMPLOYEE_BY_SEARCH_URL, GET_USER_URL, TICKETS_URL, USER_LOGIN_URL, USER_REGISTER_URL} from '../shared/constants/urls';
 import { Customer } from '../shared/interfaces/ICustomer';
 import { Employee } from '../shared/interfaces/IEmployee';
+import { Router } from '@angular/router';
+import { Ticket } from '../shared/interfaces/ITickets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
+
+  private TOKEN_KEY = 'token'
 
   GET<DynamicType>(endpoint: string): Observable<DynamicType> {
         return this.http.get<DynamicType>(
@@ -37,6 +41,18 @@ export class ApiService {
       )
   }
 
+  setToken(value: string) {
+        localStorage.setItem(this.TOKEN_KEY, value)
+    }
+
+    getToken(): string {
+        return localStorage.getItem(this.TOKEN_KEY) || '';
+    }
+
+    deleteToken() {
+      localStorage.removeItem(this.TOKEN_KEY);
+    }
+
   signup(user: User): Observable<User> {
         return this.POST<User>(USER_REGISTER_URL, user);
     }
@@ -45,22 +61,26 @@ export class ApiService {
     return this.POST<User>(USER_LOGIN_URL, user);
   }
 
+  //  getOneUser(): Observable<Array<User>> {
+  //   return this.GET<Array<User>>(GET_USER_URL);
+  // }
+
   getCustomers(): Observable<Array<Customer>> {
-    return this.GET<Array<Customer>>(ADD_CUSTOMER_URL);
+    return this.GET<Array<Customer>>(CUSTOMER_URL);
   }
 
   getOneCustomer(id: string): Observable<Customer> {
-        return this.GET<Customer>(`${ADD_CUSTOMER_URL}/${id}`);
+        return this.GET<Customer>(`${CUSTOMER_URL}/${id}`);
     }
 
   addCustomer(customer: Customer): Observable<Customer> {
-        return this.POST<Customer>(ADD_CUSTOMER_URL, customer);
+        return this.POST<Customer>(CUSTOMER_URL, customer);
     }
 
 
     deleteCustomer(id: string): Observable<Customer> {
         return this.http.delete<Customer>(
-            `${BASE_URL}${ADD_CUSTOMER_URL}/${id}`,
+            `${BASE_URL}${CUSTOMER_URL}/${id}`,
             {
                 headers: {
                     // 'x-auth-token': this.getToken()
@@ -71,7 +91,7 @@ export class ApiService {
 
     updateCustomer(id: string, customer: Customer): Observable<Customer> {
         return this.http.put<Customer>(
-            `${BASE_URL}${ADD_CUSTOMER_URL}/${id}`,
+            `${BASE_URL}${CUSTOMER_URL}/${id}`,
             customer,
             {
                 headers: {
@@ -92,6 +112,14 @@ export class ApiService {
 
   addEmployee(employee: Employee): Observable<Employee> {
         return this.POST<Employee>(EMPLOYEES_URL, employee);
+  }
+
+  getTickets(): Observable<Array<Ticket>> {
+    return this.GET<Array<Ticket>>(TICKETS_URL);
+  }
+
+  addTicket(ticket: Ticket): Observable<Ticket> {
+        return this.POST<Ticket>(TICKETS_URL, ticket);
   }
 
 }

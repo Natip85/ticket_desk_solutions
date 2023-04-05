@@ -11,6 +11,7 @@ const Employee = require('./../models/employeeModel')
 router.get("/search/:searchTerm", async (req, res)=>{
   const searchRegex = new RegExp(req.params.searchTerm, 'i');
   const employee = await Employee.find({name: {$regex:searchRegex}})
+
   res.status(200).json(employee)
 })
 

@@ -9,19 +9,28 @@ import { DashboardPageComponent } from './dashboard/dashboard-page/dashboard-pag
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 import { SelectedCustomerComponent } from './customers/selected-customer/selected-customer.component';
 import { EmployeesPageComponent } from './employees/employees-page/employees-page.component';
-import { EmployeeDisplayComponent } from './employees/employee-display/employee-display.component';
+import { AuthService } from './core/auth.service';
+import { NewTicketComponent } from './portal/new-ticket/new-ticket.component';
 
 const routes: Routes = [
-  {path: "", component: HomePageComponent},
+  {path: 'home', component: HomePageComponent},
   {path: 'signup', component: SignupPageComponent},
   {path: 'login', component: LoginPageComponent},
-  {path: 'portalHome', component: PortalHomeComponent},
-  {path: 'customers', component: CustomersPageComponent},
-  {path: 'dashboard', component: DashboardPageComponent},
-  { path: 'edit-customer/:id', component: EditCustomerComponent },
-  { path: 'selectedCustomer/:id', component: SelectedCustomerComponent },
-  { path: 'employees', component: EmployeesPageComponent },
-  {path: 'search/:searchTerm', component: EmployeeDisplayComponent}
+  {path: 'search/:searchTerm', component: EmployeesPageComponent},
+  {
+        path: '',
+        canActivateChild: [AuthService],
+        children: [
+          {path: 'portalHome', component: PortalHomeComponent},
+          {path: 'customers', component: CustomersPageComponent},
+          {path: 'dashboard', component: DashboardPageComponent},
+          { path: 'edit-customer/:id', component: EditCustomerComponent },
+          { path: 'selectedCustomer/:id', component: SelectedCustomerComponent },
+          { path: 'employees', component: EmployeesPageComponent },
+          { path: 'newTicket', component: NewTicketComponent }
+
+        ]
+    }
 ];
 
 @NgModule({
