@@ -19,21 +19,21 @@
     <label for="status">Status</label>
     <select formControlName="status" class="form-control" >
       <option>- -</option>
-      <option >gfrfgrf</option>
+      <option *ngFor="let status of statusOptions">{{status}}</option>
     </select>
   </div>
   <div class="col-11 m-3">
     <label for="agent">Agent</label>
     <select formControlName="agent" class="form-control" >
       <option>- -</option>
-      <option >gfrfgrf</option>
+      <option *ngFor="let agent of agents">{{agent}}</option>
     </select>
   </div>
   <div class="col-11 m-3">
     <label for="priority">Priority</label>
     <select formControlName="priority" class="form-control" >
       <option>- -</option>
-      <option >gfrfgrf</option>
+      <option *ngFor="let priority of priorityOptions">{{priority}}</option>
     </select>
   </div>
     <div class="mb-3">

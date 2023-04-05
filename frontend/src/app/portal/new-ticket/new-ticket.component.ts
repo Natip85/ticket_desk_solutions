@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/api.service';
 import { Ticket } from 'src/app/shared/interfaces/ITickets';
 
@@ -11,6 +12,9 @@ import { Ticket } from 'src/app/shared/interfaces/ITickets';
 export class NewTicketComponent {
   sectionTitle = 'Add a new tickets'
   sectionIcon = 'fa-solid fa-ticket'
+  agents = ['Nati', 'Leeav', 'Sharon']
+  priorityOptions = ['Low', 'Medium', 'High', 'Urgent']
+  statusOptions = ['Open', 'Closed', 'Pending', 'Waiting on response']
 
   addTicketForm = new FormGroup({
         subject: new FormControl('', {
@@ -45,7 +49,7 @@ export class NewTicketComponent {
         })
     })
 
-    constructor(private api: ApiService){}
+    constructor(private api: ApiService, private router: Router){}
 
     onSubmit(){
        if (this.addTicketForm.invalid) {
@@ -57,7 +61,7 @@ export class NewTicketComponent {
                 this.addTicketForm.reset();
                 // this.getAllCustomers();
 
-                // this.router.navigate(['lecturers']);
+                this.router.navigate(['portalHome']);
                 // this.getTasks();
             },
             error: (err) => console.log(err)
