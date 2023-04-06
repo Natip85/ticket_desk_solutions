@@ -14,6 +14,8 @@ export class EditCustomerComponent implements OnInit {
 
   sectionTitle = 'Edit customer'
    customer: Customer | null = null;
+   showNotification = false;
+   text = 'Customer sucessfully updated!'
 
     editCustomerForm = new FormGroup({
         fName: new FormControl('', {
@@ -59,6 +61,8 @@ export class EditCustomerComponent implements OnInit {
     ngOnInit(): void {
         this.activeRoute.paramMap.pipe(
             switchMap(params => {
+              console.log(params);
+
                 const id = params.get('id') as string;
                 return this.api.getOneCustomer(id);
             })
@@ -87,10 +91,20 @@ export class EditCustomerComponent implements OnInit {
 
         this.api.updateCustomer(this.customer?._id, this.editCustomerForm.value).subscribe({
             next: (data: Customer) => {
-                this.router.navigate(['customers']);
+              this.showNotification = true;
+        setTimeout(() => {
+          this.showNotification = false;
+          this.router.navigate(['customers']);
+        }, 2000);
+
             },
             error: (err) => console.log(err)
         })
+    }
+
+    notificationClosed(state: boolean) {
+        this.showNotification = state;
+        // this.showForm = false;
     }
 
 }

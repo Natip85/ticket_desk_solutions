@@ -4,18 +4,22 @@ import { PortalHomeComponent } from './portal-home/portal-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewTicketComponent } from './new-ticket/new-ticket.component';
+import { RouterLink } from '@angular/router';
+import { TicketPageComponent } from './ticket-page/ticket-page.component';
 
 
 
 @NgModule({
   declarations: [
     PortalHomeComponent,
-    NewTicketComponent
+    NewTicketComponent,
+    TicketPageComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ]
 })
 export class PortalModule { }

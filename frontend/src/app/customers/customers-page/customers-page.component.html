@@ -3,6 +3,9 @@
 <app-sidebar></app-sidebar>
 
 <div class="main-wrap">
+
+<app-notifications [text]="text" (buttonClicked)="notificationClosed($event)" [showNotification]="showNotification"></app-notifications>
+
 <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
   <div class="">

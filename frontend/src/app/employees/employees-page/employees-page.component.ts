@@ -11,8 +11,9 @@ import { Employee } from 'src/app/shared/interfaces/IEmployee';
 export class EmployeesPageComponent implements OnInit {
   sectionTitle = 'Employees'
   sectionIcon = 'bi bi-headset'
-
   employees: Array<Employee> = [];
+  showNotification = false;
+  text = 'Employee sucessfully added!'
 
   addEmployeeForm = new FormGroup({
         name: new FormControl('', {
@@ -58,9 +59,10 @@ export class EmployeesPageComponent implements OnInit {
             next: (data: Employee) => {
                 this.addEmployeeForm.reset();
                 this.getAllEmployees();
-
-                // this.router.navigate(['lecturers']);
-                // this.getTasks();
+                 this.showNotification = true;
+                  setTimeout(() => {
+                    this.showNotification = false;
+                  }, 3000);
             },
             error: (err) => console.log(err)
         })
@@ -73,6 +75,8 @@ export class EmployeesPageComponent implements OnInit {
         })
     }
 
-
+    notificationClosed(state: boolean) {
+        this.showNotification = state;
+    }
 
 }

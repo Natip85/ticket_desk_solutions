@@ -11,6 +11,8 @@ export class CustomersPageComponent implements OnInit {
   @Input() sectionTitle = 'Customers'
   @Input() sectionIcon = 'fa-solid fa-users-viewfinder'
   customers: Array<Customer> = [];
+  showNotification = false;
+  text = 'Customer sucessfully added!'
 
   addcustomerForm = new FormGroup({
         fName: new FormControl('', {
@@ -58,12 +60,14 @@ export class CustomersPageComponent implements OnInit {
             next: (data: Customer) => {
                 this.addcustomerForm.reset();
                 this.getAllCustomers();
-
-                // this.router.navigate(['lecturers']);
-                // this.getTasks();
             },
             error: (err) => console.log(err)
         })
+        this.showNotification = true;
+        setTimeout(() => {
+          this.showNotification = false;
+        }, 3000);
+
     }
 
     getAllCustomers() {
@@ -91,6 +95,10 @@ export class CustomersPageComponent implements OnInit {
             error: (err) => console.log(err)
         })
       }
+    }
+
+    notificationClosed(state: boolean) {
+        this.showNotification = state;
     }
 
 }

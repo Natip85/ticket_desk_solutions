@@ -21,6 +21,32 @@ router.get('/', async (req, res)=>{
 
 
 /*
+* GET http://localhost:3001/api/tickets/54545454
+*/
+router.get('/:id', async (req, res)=>{
+     try {
+            const schema = joi.object({
+                id: joi.string().required(),
+            });
+
+            const { error, value } = schema.validate(req.params);
+
+            if (error) {
+                console.log(error.details[0].message);
+                throw `error getting details`;
+            }
+
+            const ticket = await Tickets.findById(value.id);
+            if (!ticket) throw "Invalid ticket id, no such ticket.";
+            res.json(ticket);
+        }
+        catch (err) {
+            res.status(400).json({ error: "Invalid data" });
+            console.log(`Error: ${err}`);
+        }
+    })
+
+/*
 * POST http://localhost:3001/api/tickets
 */
 router.post('/', async (req, res)=>{

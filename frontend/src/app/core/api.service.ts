@@ -118,8 +118,25 @@ export class ApiService {
     return this.GET<Array<Ticket>>(TICKETS_URL);
   }
 
+   getOneTicket(id: string): Observable<Ticket> {
+        return this.GET<Ticket>(`${TICKETS_URL}/${id}`);
+    }
+
   addTicket(ticket: Ticket): Observable<Ticket> {
         return this.POST<Ticket>(TICKETS_URL, ticket);
   }
+
+  updateTicket(id: string, ticket: Ticket): Observable<Ticket> {
+        return this.http.put<Ticket>(
+            `${BASE_URL}${TICKETS_URL}/${id}`,
+            ticket,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'x-auth-token': this.getToken()
+                }
+            }
+        )
+    }
 
 }

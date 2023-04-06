@@ -6,6 +6,8 @@
 
 <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
+<app-notifications [text]="text" (buttonClicked)="notificationClosed($event)" [showNotification]="showNotification"></app-notifications>
+
 <app-search-page></app-search-page>
 
 <div class="link-center">

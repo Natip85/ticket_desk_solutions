@@ -37,13 +37,16 @@
     </select>
   </div>
     <div class="mb-3">
-      <button type="button" class="btn btn-secondary">
+      <a routerLink="/portalHome">
+      <button type="button" class="btn btn-secondary cancel-btn">
         Cancel
       </button>
-      <button [disabled]="addTicketForm.invalid" type="submit" class="btn btn-primary">
+      </a>
+      <button [disabled]="addTicketForm.invalid" type="submit" class="btn btn-primary add-btn">
         Add ticket
       </button>
     </div>
 </form>
 
 </div>
+

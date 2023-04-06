@@ -17,6 +17,21 @@ const cookieOptions = {
   httpOnly: true
 };
 
+
+/*
+* GET http://localhost:3001/api/users
+*/
+router.get('/', async (req, res)=>{
+ try {
+            const result = await User.find({});
+            res.json(result);
+        }
+        catch (err) {
+            console.log(err);
+            res.status(400).json({ error: 'error getting customers' });
+        }
+});
+
 /*
 * POST http://localhost:3001/api/users/register
 */

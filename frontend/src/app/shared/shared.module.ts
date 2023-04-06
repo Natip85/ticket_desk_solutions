@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AppRoutingModule } from '../app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TicketNavbarComponent } from './ticket-navbar/ticket-navbar.component';
 import { TitleComponent } from './title/title.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,17 +16,19 @@ import { TitleComponent } from './title/title.component';
     FooterComponent,
     SidebarComponent,
     TicketNavbarComponent,
-    TitleComponent
+    TitleComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    RouterModule
   ],
   exports: [
     NavbarComponent,
     SidebarComponent,
     TicketNavbarComponent,
-    TitleComponent
+    TitleComponent,
+    NotificationsComponent
   ]
 })
 export class SharedModule { }
