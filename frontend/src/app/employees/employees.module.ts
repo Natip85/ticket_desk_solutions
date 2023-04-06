@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchModule } from '../search/search.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeDisplayComponent } from './employee-display/employee-display.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 
@@ -19,6 +19,7 @@ import { RouterLink } from '@angular/router';
     SharedModule,
     SearchModule,
     ReactiveFormsModule,
+    RouterModule,
     RouterLink
   ]
 })

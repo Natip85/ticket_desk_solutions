@@ -11,7 +11,7 @@ import { SelectedCustomerComponent } from './customers/selected-customer/selecte
 import { EmployeesPageComponent } from './employees/employees-page/employees-page.component';
 import { AuthService } from './core/auth.service';
 import { NewTicketComponent } from './portal/new-ticket/new-ticket.component';
-import { TicketPageComponent } from './portal/ticket-page/ticket-page.component';
+import { SelectedTicketPageComponent } from './portal/selected-ticket-page/selected-ticket-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -29,8 +29,7 @@ const routes: Routes = [
           { path: 'selectedCustomer/:id', component: SelectedCustomerComponent },
           { path: 'employees', component: EmployeesPageComponent },
           { path: 'newTicket', component: NewTicketComponent },
-          { path: 'ticket-page', component: TicketPageComponent }
-
+          { path: 'selectedTicket/:id', component: SelectedTicketPageComponent }
         ]
     }
 ];

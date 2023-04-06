@@ -1,0 +1,79 @@
+<app-ticket-navbar></app-ticket-navbar>
+
+<app-sidebar></app-sidebar>
+
+<div class="main-wrap">
+
+  <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
+
+  <div class="top-opt-sec">
+    <button class="reply-btn">Reply</button>
+    <button class="forward-btn">Forward</button>
+    <button class="close-btn">Close</button>
+    <button class="delete-btn">Delete</button>
+  </div>
+
+  <div class="main-sec">
+
+    <div class="left-msg-side">
+
+      <h2>New</h2>
+
+      <hr>
+
+      <h1>New customer message</h1>
+
+  <table class="table table-striped myTable">
+  <tbody>
+    <tr>
+      <td>
+        <div>
+          <b>Name:</b>
+        <p>test</p>
+        </div>
+        <div>
+          <b>Email:</b>
+        <p>test@gmail.com</p>
+        </div>
+        <div>
+          <b>Phone:</b>
+        <p>5454545454</p>
+        </div>
+        <div>
+          <b>Message:</b>
+        <p>{{ticket?.message}}</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+
+    <div class="right-filter-side">
+      <form>
+        <div class="filter-divs">
+          <label for="">Agent</label>
+        <select>
+          <option></option>
+        </select>
+        </div>
+        <div class="filter-divs">
+          <label for="">Status</label>
+        <select>
+          <option></option>
+        </select>
+        </div>
+        <div class="filter-divs">
+          <label for="">Priority</label>
+        <select>
+          <option></option>
+        </select>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

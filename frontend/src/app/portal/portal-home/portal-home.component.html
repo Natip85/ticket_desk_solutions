@@ -19,7 +19,7 @@
       <tbody>
         <tr *ngFor="let ticket of tickets">
           <td >{{ticket.ticketId}}</td>
-          <td ><a routerLink="/ticket-page">{{ticket.subject}}</a></td>
+          <td ><a routerLink="/selectedTicket/{{ticket._id}}">{{ticket.subject}}</a></td>
           <td >{{ticket.createdAt | date}}</td>
           <td>
             <select formControlName="agent" >

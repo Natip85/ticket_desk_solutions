@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/api.service';
 import { Employee } from 'src/app/shared/interfaces/IEmployee';
 
@@ -8,7 +9,7 @@ import { Employee } from 'src/app/shared/interfaces/IEmployee';
   templateUrl: './employees-page.component.html',
   styleUrls: ['./employees-page.component.css']
 })
-export class EmployeesPageComponent implements OnInit {
+export class EmployeesPageComponent implements OnInit  {
   sectionTitle = 'Employees'
   sectionIcon = 'bi bi-headset'
   employees: Array<Employee> = [];
@@ -43,12 +44,13 @@ export class EmployeesPageComponent implements OnInit {
         })
     })
 
-    ngOnInit(): void {
-        this.getAllEmployees();
 
-    }
 
     constructor(private api: ApiService){}
+
+  ngOnInit(): void {
+    this.getAllEmployees()
+  }
 
     onSubmit(){
        if (this.addEmployeeForm.invalid) {
@@ -57,12 +59,16 @@ export class EmployeesPageComponent implements OnInit {
 
         this.api.addEmployee(this.addEmployeeForm.value).subscribe({
             next: (data: Employee) => {
-                this.addEmployeeForm.reset();
+
                 this.getAllEmployees();
+
                  this.showNotification = true;
+
                   setTimeout(() => {
                     this.showNotification = false;
                   }, 3000);
+
+                  this.addEmployeeForm.reset();
             },
             error: (err) => console.log(err)
         })
@@ -74,6 +80,8 @@ export class EmployeesPageComponent implements OnInit {
             error: (err) => console.log(err)
         })
     }
+
+
 
     notificationClosed(state: boolean) {
         this.showNotification = state;

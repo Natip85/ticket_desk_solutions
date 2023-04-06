@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewTicketComponent } from './new-ticket/new-ticket.component';
 import { RouterLink } from '@angular/router';
-import { TicketPageComponent } from './ticket-page/ticket-page.component';
+import { SelectedTicketPageComponent } from './selected-ticket-page/selected-ticket-page.component';
 
 
 
@@ -13,7 +13,7 @@ import { TicketPageComponent } from './ticket-page/ticket-page.component';
   declarations: [
     PortalHomeComponent,
     NewTicketComponent,
-    TicketPageComponent
+    SelectedTicketPageComponent
   ],
   imports: [
     CommonModule,
