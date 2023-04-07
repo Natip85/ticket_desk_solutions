@@ -84,6 +84,7 @@ router.post('/login', async (req, res)=>{
     }
 
     res.cookie('jwt', token, cookieOptions);
+    res.cookie('user', user)
     
     res.status(200).json({
       status: 'Success',

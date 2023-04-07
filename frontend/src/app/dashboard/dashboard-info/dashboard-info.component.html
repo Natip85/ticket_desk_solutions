@@ -7,7 +7,7 @@
     </thead>
     <tbody >
       <tr>
-        <td class="myTd">Total customers <span>{{customers.length}}</span></td>
+        <td class="myTd">Total customers <a routerLink="/customers"><span>{{customers.length}}</span></a></td>
       </tr>
     </tbody>
   </table>
@@ -24,7 +24,7 @@
         <td class="myTd">Admins <span>2</span></td>
       </tr>
       <tr>
-        <td class="myTd">Employees <span>{{employees.length}}</span></td>
+        <td class="myTd">Employees <a routerLink="/employees"><span>{{employees.length}}</span></a></td>
       </tr>
     </tbody>
   </table>
@@ -35,11 +35,10 @@
     <thead class="thead">
       <th>All tickets</th>
     </thead>
-    <tbody >
+    <tbody>
       <tr>
-        <td class="myTd">Total tickets <span>{{tickets.length}}</span></td>
+        <td class="myTd">Total tickets <a routerLink="/portalHome"><span>{{tickets.length}}</span></a></td>
       </tr>
-
     </tbody>
   </table>
 </div>
