@@ -13,3 +13,11 @@ thead{
   background-color: #F5F7F9;
 
 }
+
+span {
+  margin-left: 1.5rem;
+}
+
+i{
+  cursor: pointer;
+}

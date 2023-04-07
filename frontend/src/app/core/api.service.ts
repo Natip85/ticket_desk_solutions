@@ -114,6 +114,17 @@ export class ApiService {
         return this.POST<Employee>(EMPLOYEES_URL, employee);
   }
 
+   deleteEmployee(id: string): Observable<Employee> {
+        return this.http.delete<Employee>(
+            `${BASE_URL}${EMPLOYEES_URL}/${id}`,
+            {
+                headers: {
+                    // 'x-auth-token': this.getToken()
+                }
+            }
+        )
+    }
+
   getTickets(): Observable<Array<Ticket>> {
     return this.GET<Array<Ticket>>(TICKETS_URL);
   }

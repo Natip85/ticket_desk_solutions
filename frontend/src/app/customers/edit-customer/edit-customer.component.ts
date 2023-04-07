@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
@@ -12,7 +12,9 @@ import { Customer } from 'src/app/shared/interfaces/ICustomer';
 })
 export class EditCustomerComponent implements OnInit {
 
-  sectionTitle = 'Edit customer'
+  @Input() sectionTitle = 'Customers'
+  @Input() sectionIcon = 'fa-solid fa-users-viewfinder'
+
    customer: Customer | null = null;
    showNotification = false;
    text = 'Customer sucessfully updated!'

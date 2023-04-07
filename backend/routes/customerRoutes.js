@@ -57,8 +57,8 @@ router.post('/', async (req, res)=>{
                 fName: joi.string().min(2).max(100).required(),
                 lName: joi.string().min(2).max(100).required(),
                 email: joi.string().required().email(),
-                phone: joi.string().max(20).min(6),
-                address: joi.string().min(2).max(100)
+                phone: joi.string().max(20).min(10).required(),
+                address: joi.string().min(2).max(100).required()
             });
 
             const { error, value } = schema.validate(req.body);

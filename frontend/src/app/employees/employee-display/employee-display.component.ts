@@ -34,11 +34,33 @@ export class EmployeeDisplayComponent implements OnInit {
   })
   }
 
-  getAllEmployees(){
-    return this.api.getEmployees()
-  }
+  // getAllEmployees(){
+  //   return this.api.getEmployees()
+  // }
+
+  getAllEmployees() {
+        this.api.getEmployees().subscribe({
+            next: (data: Array<Employee>) => this.employees = data,
+            error: (err) => console.log(err)
+        })
+    }
 
   ngOnInit(): void {
-    this.getAllEmployees()
+    // this.getAllEmployees()
   }
+
+  onDelete(employee: Employee) {
+        if (!employee._id) {
+            return;
+        }
+
+        var userConfirmed = confirm(`Are you sure you want to remove the following employee? \n "${employee.email}"`)
+
+    if(userConfirmed){
+        this.api.deleteEmployee(employee._id).subscribe({
+            next: (data: Employee) => this.getAllEmployees(),
+            error: (err) => console.log(err)
+        })
+      }
+    }
 }

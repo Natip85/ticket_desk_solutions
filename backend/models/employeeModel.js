@@ -17,12 +17,14 @@ const employeeSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    minlength: [6, 'Phone number is not valid'],
+    minlength: [9, 'Phone number is not valid'],
     maxlength: [20, 'Phone number is not valid'],
+    required: [true, 'Must submit a phone number.'],
     match: [/^[+]?(\d{1,2})?[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, 'Enter a valid phone number'],
   },
   bDay:{
     type: String,
+    required: [true, 'Must submit a birth date.'],
    minlength: [2, 'Birthday is not valid'],
     maxlength: [100, 'Birthday is not valid'],
   },

@@ -32,14 +32,16 @@ export class EmployeesPageComponent implements OnInit  {
         }),
         phone: new FormControl('', {
             validators: [
-                Validators.minLength(6),
-                Validators.maxLength(20)
+                Validators.minLength(9),
+                Validators.maxLength(20),
+                Validators.required
             ]
         }),
         bDay: new FormControl('', {
             validators: [
                 Validators.minLength(2),
-                Validators.maxLength(100)
+                Validators.maxLength(100),
+                Validators.required
             ]
         })
     })
@@ -60,6 +62,8 @@ export class EmployeesPageComponent implements OnInit  {
         this.api.addEmployee(this.addEmployeeForm.value).subscribe({
             next: (data: Employee) => {
 
+              this.addEmployeeForm.reset();
+
                 this.getAllEmployees();
 
                  this.showNotification = true;
@@ -68,7 +72,7 @@ export class EmployeesPageComponent implements OnInit  {
                     this.showNotification = false;
                   }, 3000);
 
-                  this.addEmployeeForm.reset();
+
             },
             error: (err) => console.log(err)
         })

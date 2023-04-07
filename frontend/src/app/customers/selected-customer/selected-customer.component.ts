@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ApiService } from 'src/app/core/api.service';
@@ -10,7 +10,8 @@ import { Customer } from 'src/app/shared/interfaces/ICustomer';
   styleUrls: ['./selected-customer.component.css']
 })
 export class SelectedCustomerComponent implements OnInit {
-  sectionTitle = 'Customer details'
+   sectionTitle = 'Customers'
+   sectionIcon = 'fa-solid fa-users-viewfinder'
 
   customer: Customer | null = null;
 

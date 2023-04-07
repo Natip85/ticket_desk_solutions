@@ -23,12 +23,14 @@ const customerSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    minlength: [6, 'Phone number is not valid'],
+    minlength: [10, 'Phone number is not valid'],
     maxlength: [20, 'Phone number is not valid'],
+    required: [true, 'Must submit a valid phone number.'],
     match: [/^[+]?(\d{1,2})?[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/, 'Enter a valid phone number'],
   },
   address:{
     type: String,
+    required: [true, 'Must submit an address.'],
    minlength: [2, 'Phone number is not valid'],
     maxlength: [100, 'Phone number is not valid'],
   },

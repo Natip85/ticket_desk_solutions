@@ -12,7 +12,8 @@ import { User } from 'src/app/shared/interfaces/IUserSignup';
 })
 export class LoginPageComponent {
 
-
+  showNotification = false;
+  text = 'Logged in sucessfully!'
 
   @ViewChild('emailFieldRef') emailField!: ElementRef;
 
@@ -49,7 +50,14 @@ export class LoginPageComponent {
     this.api.login(this.loginForm.value).subscribe({
       next: (data) => {
          if (data.token) this.api.setToken(data.token)
+
+         this.showNotification = true;
+        setTimeout(() => {
+          this.showNotification = false;
           this.router.navigate([this.auth.redirectUrl]);
+        }, 1000);
+
+
       },
       error: (err) => {
         console.log(err.error)
@@ -58,5 +66,9 @@ export class LoginPageComponent {
       }
     })
   }
+
+  notificationClosed(state: boolean) {
+        this.showNotification = state;
+    }
 
 }

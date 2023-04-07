@@ -39,8 +39,8 @@ router.post('/', async (req, res)=>{
             const schema = joi.object({
                 name: joi.string().min(2).max(100).required(),
                 email: joi.string().required().email(),
-                phone: joi.string().max(20).min(6),
-                bDay: joi.string().min(2).max(100)
+                phone: joi.string().max(20).min(9).required(),
+                bDay: joi.string().min(2).max(100).required()
             });
 
             const { error, value } = schema.validate(req.body);
@@ -60,6 +60,33 @@ router.post('/', async (req, res)=>{
         }
       })
 
+/*
+* DELETE http://localhost:3001/api/employees/31322323232
+*/
+router.delete('/:id', async (req, res)=>{
+      try {
+            const schema = joi.object({
+                id: joi.string().required(),
+            });
 
+            const { error, value } = schema.validate(req.params);
+
+            if (error) {
+                console.log(error.details[0].message);
+                throw `error deleting employee`;
+            }
+
+            const deleted = await Employee.findOneAndRemove({
+                _id: value.id
+            });
+
+            if (!deleted) throw "failed to delete";
+            res.json(deleted);
+        }
+        catch (err) {
+            console.log(err.message);
+            res.status(400).json({ error: `error delete project` });
+        }
+    })
 
 module.exports = router;

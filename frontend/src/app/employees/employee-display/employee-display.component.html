@@ -8,11 +8,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let employee of employees; let i = index" >
-      <td >{{i+1}} </td>
+       <td> <span>{{i+1}}</span>
+      </td>
       <td >{{employee.name}} </td>
       <td >{{employee.email}} </td>
       <td >{{employee.phone}} </td>
-      <td >{{employee.bDay}} </td>
+      <td >{{employee.bDay}} <span>
+        <i (click)="onDelete(employee)" class="bi bi-trash text-danger"></i>
+        </span></td>
     </tr>
   </tbody>
 </table>

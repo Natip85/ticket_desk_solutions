@@ -10,6 +10,9 @@ import { ApiService } from 'src/app/core/api.service';
 })
 export class SignupPageComponent implements AfterViewInit{
 
+   showNotification = false;
+  text = 'Registered sucessfully!'
+
   @ViewChild('nameFieldRef') nameField!: ElementRef;
 
   ngAfterViewInit(): void {
@@ -51,7 +54,13 @@ export class SignupPageComponent implements AfterViewInit{
     this.api.signup(this.signupForm.value).subscribe({
       next: (data) => {
 
-        this.router.navigate(['login']);
+        this.showNotification = true;
+        setTimeout(() => {
+          this.showNotification = false;
+          this.router.navigate(['login']);
+        }, 1000);
+
+
       },
       error: (err) => {
         console.log(err.error)
@@ -60,5 +69,9 @@ export class SignupPageComponent implements AfterViewInit{
       }
     })
   }
+
+  notificationClosed(state: boolean) {
+        this.showNotification = state;
+    }
 
 }

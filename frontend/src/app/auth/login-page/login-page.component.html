@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
+<app-notifications [text]="text" (buttonClicked)="notificationClosed($event)" [showNotification]="showNotification"></app-notifications>
+
 <div class="loginForm-wrap">
 
   <div class="login-signup-wrap">

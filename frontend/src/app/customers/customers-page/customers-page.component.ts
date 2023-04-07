@@ -8,8 +8,8 @@ import { Customer } from 'src/app/shared/interfaces/ICustomer';
   styleUrls: ['./customers-page.component.css']
 })
 export class CustomersPageComponent implements OnInit {
-  @Input() sectionTitle = 'Customers'
-  @Input() sectionIcon = 'fa-solid fa-users-viewfinder'
+   sectionTitle = 'Customers'
+   sectionIcon = 'fa-solid fa-users-viewfinder'
   customers: Array<Customer> = [];
   showNotification = false;
   text = 'Customer sucessfully added!'
@@ -37,14 +37,16 @@ export class CustomersPageComponent implements OnInit {
         }),
         phone: new FormControl('', {
             validators: [
-                Validators.minLength(6),
-                Validators.maxLength(20)
+                Validators.minLength(10),
+                Validators.maxLength(20),
+                Validators.required
             ]
         }),
         address: new FormControl('', {
             validators: [
                 Validators.minLength(2),
-                Validators.maxLength(100)
+                Validators.maxLength(100),
+                Validators.required
             ]
         })
     })
@@ -87,7 +89,7 @@ export class CustomersPageComponent implements OnInit {
             return;
         }
 
-        var userConfirmed = confirm(`Are you sure you want to remove the following task? \n "${customer.email}"`)
+        var userConfirmed = confirm(`Are you sure you want to remove the following customer? \n "${customer.email}"`)
 
     if(userConfirmed){
         this.api.deleteCustomer(customer._id).subscribe({
@@ -100,5 +102,9 @@ export class CustomersPageComponent implements OnInit {
     notificationClosed(state: boolean) {
         this.showNotification = state;
     }
+
+    getFieldControl(field: string): FormControl {
+    return this.addcustomerForm.get(field) as FormControl;
+  }
 
 }

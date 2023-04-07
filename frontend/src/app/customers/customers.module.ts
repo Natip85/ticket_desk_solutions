@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { RouterLink } from '@angular/router';
 import { SelectedCustomerComponent } from './selected-customer/selected-customer.component';
+import { FieldValidationComponent } from './field-validation/field-validation.component';
 
 
 @NgModule({
@@ -13,12 +14,14 @@ import { SelectedCustomerComponent } from './selected-customer/selected-customer
     CustomersPageComponent,
     EditCustomerComponent,
     SelectedCustomerComponent,
+    FieldValidationComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+
   ]
 })
 export class CustomersModule { }
