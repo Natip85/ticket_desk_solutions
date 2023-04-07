@@ -6,6 +6,7 @@ import { SearchModule } from '../search/search.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeDisplayComponent } from './employee-display/employee-display.component';
 import { RouterLink, RouterModule } from '@angular/router';
+import { CustomersModule } from '../customers/customers.module';
 
 
 
@@ -20,7 +21,8 @@ import { RouterLink, RouterModule } from '@angular/router';
     SearchModule,
     ReactiveFormsModule,
     RouterModule,
-    RouterLink
+    RouterLink,
+    CustomersModule
   ]
 })
 export class EmployeesModule { }

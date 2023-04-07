@@ -5,17 +5,28 @@
     All tickets
   </div>
   <div class="ticket-search">
-    <a routerLink="/newTicket">
-    <button class="add-a-new">
+
+    <div class="acc-dropdown2">
+    <button (click)="toggleAcc2()" class="add-a-new">
       <i class="fa-regular fa-square-plus plusBtn"></i>
       New
-      <!-- <i class="fa-solid fa-angle-down"></i> -->
     </button>
-    </a>
+    <div class="dropdown-wrap2" *ngIf="showForm2">
+      <a routerLink="/newTicket">
+          <div class="addLinks">New ticket</div>
+          </a>
+          <a routerLink="/customers">
+          <div class="addLinks">New customer</div>
+          </a>
+          <a routerLink="/employees">
+          <div class="addLinks">New employee</div>
+          </a>
+    </div>
+    </div>
     <hr class="btn-seperator">
+
     <ul class="topbar-ul">
       <li  class="topbar-li">
-        <!-- <i class="fa-solid fa-magnifying-glass searchIcon"></i> -->
         <input type="text" placeholder="Search" class="search-input">
       </li>
       <li class="topbar-li">
@@ -25,7 +36,6 @@
 
     <div class="acc-dropdown">
     <div  (click)="toggleAcc()" class="avatar">N</div>
-
     <div class="dropdown-wrap" *ngIf="showForm">
           <table>
             <thead>
@@ -42,10 +52,9 @@
               </tr>
             </tbody>
           </table>
+    </div>
+    </div>
 
-    </div>
-    </div>
   </div>
-
 </nav>
 </div>

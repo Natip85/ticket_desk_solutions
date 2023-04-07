@@ -10,9 +10,8 @@ import { User } from '../interfaces/IUserSignup';
 })
 export class TicketNavbarComponent implements OnInit {
 
-  // user: Array<User> = [];
-
   showForm = false;
+  showForm2 = false;
 
   constructor(private api: ApiService, private router: Router){}
 
@@ -24,20 +23,12 @@ export class TicketNavbarComponent implements OnInit {
      toggleAcc() {
         this.showForm = !this.showForm;
     }
+     toggleAcc2() {
+        this.showForm2 = !this.showForm2;
+    }
 
-    // getOneUserOnly() {
-    //     this.api.getOneUser().subscribe({
-    //         next: (data: Array<User>) => {
-    //           this.user = data
-    //           console.log(this.user);
-
-    //         },
-    //         error: (err) => console.log(err)
-    //     })
-    // }
 
     ngOnInit(): void {
-        // this.getOneUserOnly();
     }
 
 }

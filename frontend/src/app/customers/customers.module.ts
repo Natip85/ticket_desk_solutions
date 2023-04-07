@@ -22,6 +22,9 @@ import { FieldValidationComponent } from './field-validation/field-validation.co
     ReactiveFormsModule,
     RouterLink,
 
+  ],
+  exports: [
+    FieldValidationComponent
   ]
 })
 export class CustomersModule { }

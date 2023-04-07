@@ -32,7 +32,7 @@ export class EmployeesPageComponent implements OnInit  {
         }),
         phone: new FormControl('', {
             validators: [
-                Validators.minLength(9),
+                Validators.minLength(10),
                 Validators.maxLength(20),
                 Validators.required
             ]
@@ -90,5 +90,9 @@ export class EmployeesPageComponent implements OnInit  {
     notificationClosed(state: boolean) {
         this.showNotification = state;
     }
+
+     getFieldControl(field: string): FormControl {
+    return this.addEmployeeForm.get(field) as FormControl;
+  }
 
 }
