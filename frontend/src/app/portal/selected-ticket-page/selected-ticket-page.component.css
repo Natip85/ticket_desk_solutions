@@ -109,3 +109,21 @@ select{
 i{
   margin-right: .4rem;
 }
+
+.status-header{
+  background-color: #E5F2FD;
+  border: 1px solid #5d7e9c;
+  border-radius: .3rem;
+  color: #3864C8;
+  width: 3rem;
+  font-size: .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .1rem;
+}
+
+
+.new-msg-header{
+  font-size: 1.3rem;
+}

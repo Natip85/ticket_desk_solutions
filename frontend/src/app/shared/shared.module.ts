@@ -28,7 +28,8 @@ import { RouterModule } from '@angular/router';
     SidebarComponent,
     TicketNavbarComponent,
     TitleComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

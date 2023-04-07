@@ -38,7 +38,7 @@ export class CustomersPageComponent implements OnInit {
         phone: new FormControl('', {
             validators: [
                 Validators.minLength(10),
-                Validators.maxLength(20),
+                Validators.maxLength(12),
                 Validators.required
             ]
         }),

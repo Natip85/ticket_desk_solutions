@@ -57,7 +57,7 @@ router.post('/', async (req, res)=>{
                 fName: joi.string().min(2).max(100).required(),
                 lName: joi.string().min(2).max(100).required(),
                 email: joi.string().required().email(),
-                phone: joi.string().max(20).min(10).required(),
+                phone: joi.string().max(12).min(10).required(),
                 address: joi.string().min(2).max(100).required()
             });
 

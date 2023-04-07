@@ -33,7 +33,7 @@ export class EmployeesPageComponent implements OnInit  {
         phone: new FormControl('', {
             validators: [
                 Validators.minLength(10),
-                Validators.maxLength(20),
+                Validators.maxLength(12),
                 Validators.required
             ]
         }),
@@ -74,7 +74,10 @@ export class EmployeesPageComponent implements OnInit  {
 
 
             },
-            error: (err) => console.log(err)
+            error: (err) => {
+              console.log(err)
+            }
+
         })
     }
 

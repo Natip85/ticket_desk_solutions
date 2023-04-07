@@ -27,6 +27,8 @@ export class SelectedTicketPageComponent implements OnInit {
         ).subscribe({
             next: (data: Ticket) => {
                 this.ticket = data;
+                console.log(data);
+
             },
             error: (err) => console.log(err)
         })
