@@ -40,3 +40,13 @@ thead {
 
 }
 
+
+.ticket-link{
+  text-decoration: none;
+  color: black;
+}
+
+.ticket-link:hover{
+  text-decoration: none;
+  color: blue;
+}
