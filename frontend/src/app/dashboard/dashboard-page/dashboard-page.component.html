@@ -6,6 +6,8 @@
 
   <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
+  <h3 class="date-header"><i class="fa-solid fa-calendar-days"></i> <small>{{currentDay | date: 'MMMM d, y'}}</small> </h3>
+
   <app-dashboard-info></app-dashboard-info>
 
 </div>

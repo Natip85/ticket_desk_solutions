@@ -6,7 +6,7 @@
 
   <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
-
+  <div class="tickets-sec">
     <table class="table table-hover">
       <thead class="thead">
         <th>Ticket ID</th>
@@ -17,34 +17,51 @@
         <th>Status</th>
       </thead>
       <tbody>
-
         <tr *ngFor="let ticket of tickets">
 
           <td ><a routerLink="/selectedTicket/{{ticket._id}}" class="ticket-link">{{ticket.ticketId}}</a></td>
           <td ><a routerLink="/selectedTicket/{{ticket._id}}" class="ticket-link">{{ticket.subject}}</a></td>
-          <td >{{ticket.createdAt | date}}</td>
+          <td >{{ticket.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
           <td>
-            <select  >
-              <option>{{ticket.agent}}</option>
-              <option *ngFor="let agent of agents">{{agent}}</option>
-            </select>
+            {{ticket.agent}}
           </td>
           <td>
-            <select >
-              <option>{{ticket.priority}}</option>
-              <option *ngFor="let priority of priorityOptions">{{priority}}</option>
-            </select>
+            {{ticket.priority}}
           </td>
           <td>
-            <select >
-              <option>{{ticket.status}}</option>
-              <option *ngFor="let status of statusOptions">{{status}}</option>
-            </select>
+            {{ticket.status}}
           </td>
         </tr>
       </tbody>
   </table>
-
+  <div class="filter-sec">
+    <span>FILTERS</span>
+     <div class="filter-divs">
+          <label for="">Agent</label>
+        <select class="filter-select">
+          <option>-</option>
+          <option *ngFor="let agent of agents">{{agent}}</option>
+        </select>
+        </div>
+        <div class="filter-divs">
+          <label for="">Status</label>
+        <select class="filter-select" >
+          <option>-</option>
+          <option *ngFor="let status of statusOptions">{{status}}</option>
+        </select>
+        </div>
+        <div class="filter-divs">
+          <label for="">Priority</label>
+        <select class="filter-select" >
+          <option>-</option>
+          <option *ngFor="let priority of priorityOptions">{{priority}}</option>
+        </select>
+        </div>
+        <div class="update-btn-wrap">
+        <button class="update-btn" type="submit">Update</button>
+        </div>
+  </div>
+</div>
 
 </div>
 

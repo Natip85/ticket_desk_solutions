@@ -4,3 +4,11 @@
   margin-left: 5rem;
   padding: 2rem;
 }
+
+.date-header{
+  text-align: center;
+}
+
+small{
+  margin-left: 1rem;
+}
