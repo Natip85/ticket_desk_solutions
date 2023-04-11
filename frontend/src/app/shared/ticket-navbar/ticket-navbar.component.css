@@ -198,15 +198,15 @@ table{
   width: 100%;
 }
 
-thead{
-  height: 4rem;
+/* thead{
+  height: 1rem;
 
-}
+} */
 
-tbody{
+/* tbody{
   height: 5rem;
 
-}
+} */
 
 th{
   background-color: #EBEFF3;

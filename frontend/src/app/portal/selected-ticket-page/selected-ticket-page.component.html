@@ -4,6 +4,7 @@
 
 <div class="main-wrap">
 
+  <app-notifications [text]="text" (buttonClicked)="notificationClosed($event)" [showNotification]="showNotification"></app-notifications>
   <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
   <div class="top-opt-sec">
@@ -17,13 +18,16 @@
 
     <div class="left-msg-side">
 
-      <span>{{ticket?.ticketId}}<i class="fa-solid fa-angle-right"></i><span class="status-header">{{ticket?.status}}</span></span>
+      <span>{{ticket?.ticketId}}<i class="fa-solid fa-angle-right right-arrow"></i><span class="status-header">{{ticket?.status}}</span></span>
 
       <hr>
 
       <h1 class="new-msg-header"><i class="bi bi-envelope"></i> New customer message</h1>
+      <small>({{ticket?.createdAt | date: 'MMM d, y, h:mm:ss a'}})</small>
 
   <table class="table table-striped myTable">
+    <h5 class="msg-header">You received a new message from your companies contact form.</h5>
+    <hr>
   <tbody class="mytbody">
     <tr class="mytr">
       <td class="mytd">
@@ -52,24 +56,30 @@
 
 
     <div class="right-filter-side">
-      <form>
+      <form [formGroup]="editStatusesForm" (ngSubmit)="OnSubmit()">
         <div class="filter-divs">
           <label for="">Agent</label>
-        <select>
-          <option></option>
+        <select formControlName="agent">
+          <option>-</option>
+          <option *ngFor="let agent of agents">{{agent}}</option>
         </select>
         </div>
         <div class="filter-divs">
           <label for="">Status</label>
-        <select>
-          <option></option>
+        <select formControlName="status">
+          <option>-</option>
+          <option *ngFor="let status of statusOptions">{{status}}</option>
         </select>
         </div>
         <div class="filter-divs">
           <label for="">Priority</label>
-        <select>
-          <option></option>
+        <select formControlName="priority">
+          <option>-</option>
+          <option *ngFor="let priority of priorityOptions">{{priority}}</option>
         </select>
+        </div>
+        <div class="update-btn-wrap">
+        <button [disabled]="editStatusesForm.invalid" class="update-btn" type="submit">Update</button>
         </div>
       </form>
     </div>

@@ -1,3 +1,8 @@
+.main-sec{
+  width: 80%;
+  margin: .1rem auto;
+}
+
 .main-wrap {
   margin-left: 5rem;
   padding: 2rem;
@@ -108,6 +113,11 @@ select{
 
 i{
   margin-right: .4rem;
+  /* margin-left: .2rem; */
+}
+
+.right-arrow{
+  margin-left: .2rem;
 }
 
 .status-header{
@@ -122,6 +132,10 @@ i{
   padding: .1rem;
 }
 
+.msg-header{
+padding: 1rem;
+font-size: 1rem;
+}
 
 .new-msg-header{
   font-size: 1.3rem;
@@ -131,4 +145,18 @@ span{
   display: flex;
   align-items: center;
   /* background-color: red; */
+}
+
+.update-btn{
+  background-color: #12344D;
+  color: white;
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+  padding: .3rem 0rem .3rem 0rem;
+  width: 75%;
+}
+.update-btn-wrap{
+  display: flex;
+  justify-content: center;
 }
