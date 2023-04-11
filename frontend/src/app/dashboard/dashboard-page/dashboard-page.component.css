@@ -5,10 +5,23 @@
   padding: 2rem;
 }
 
-.date-header{
-  text-align: center;
+.date-sec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.myhr{
+  transform: rotate(90deg);
+  display: inline-block;
+  width: 2rem;
+}
+
+i{
+  font-size: 1.5rem;
 }
 
 small{
-  margin-left: 1rem;
+  font-weight: bold;
 }
