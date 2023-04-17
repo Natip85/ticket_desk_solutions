@@ -36,7 +36,12 @@ export class PortalHomeComponent {
         this.getAllTickets();
     }
 
-
+    priorityCss(ticket: Ticket): string{
+      if(ticket.priority == 'Low'){
+        'green'
+      }
+      return 'blue'
+    }
 
 
 

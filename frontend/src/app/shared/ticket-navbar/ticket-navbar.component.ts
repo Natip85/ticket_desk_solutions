@@ -13,6 +13,8 @@ export class TicketNavbarComponent implements OnInit {
   showForm = false;
   showForm2 = false;
 
+   theUser: User = this.api.getUserInfo()
+
   constructor(private api: ApiService, private router: Router){}
 
   logout() {
@@ -26,7 +28,6 @@ export class TicketNavbarComponent implements OnInit {
      toggleAcc2() {
         this.showForm2 = !this.showForm2;
     }
-
 
     ngOnInit(): void {
     }

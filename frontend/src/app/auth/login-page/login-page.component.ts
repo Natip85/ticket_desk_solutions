@@ -12,15 +12,14 @@ import { User } from 'src/app/shared/interfaces/IUserSignup';
 })
 export class LoginPageComponent {
 
+  theUser:User = {}
   showNotification = false;
   text = 'Logged in sucessfully!'
-
   @ViewChild('emailFieldRef') emailField!: ElementRef;
 
   ngAfterViewInit(): void {
         this.emailField.nativeElement.focus();
     }
-
 
   loginForm = new FormGroup({
     email: new FormControl('', {
@@ -37,7 +36,6 @@ export class LoginPageComponent {
 
   constructor(private api: ApiService, private router: Router, private auth: AuthService){}
 
-
   errs={
     status: ''
   }
@@ -46,23 +44,25 @@ export class LoginPageComponent {
     if(this.loginForm.invalid){
       return;
     }
-
     this.api.login(this.loginForm.value).subscribe({
       next: (data) => {
          if (data.token) this.api.setToken(data.token)
+
+           const myUser = JSON.stringify(data.user)
+
+         if (data.user) this.api.setUserInfo(myUser)
+
+         this.theUser = data.user
 
          this.showNotification = true;
         setTimeout(() => {
           this.showNotification = false;
           this.router.navigate([this.auth.redirectUrl]);
         }, 1000);
-
-
       },
       error: (err) => {
         console.log(err.error)
         this.errs = err.error
-
       }
     })
   }

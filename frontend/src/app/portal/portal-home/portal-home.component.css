@@ -5,7 +5,6 @@
   padding: 2rem;
 }
 
-
 select{
   background-color: transparent;
   border: none;
@@ -42,7 +41,6 @@ thead {
 
 }
 
-
 .ticket-link{
   text-decoration: none;
   color: black;
@@ -61,7 +59,7 @@ thead {
 
 .filter-sec{
   width: 15%;
-  height: 100%;
+  height: 85vh;
   /* position: fixed;
   right: 0;
   bottom: 0;
@@ -76,7 +74,6 @@ thead {
 
 .filter-divs {
   width: 100%;
-  /* background-color: blueviolet; */
   padding: 1rem;
 }
 
@@ -87,7 +84,6 @@ thead {
   outline: none;
   border: 1px solid black;
 }
-
 
 .update-btn {
   background-color: #12344D;

@@ -61,23 +61,15 @@ export class EmployeesPageComponent implements OnInit  {
 
         this.api.addEmployee(this.addEmployeeForm.value).subscribe({
             next: (data: Employee) => {
-
               this.addEmployeeForm.reset();
-
-                this.getAllEmployees();
-
                  this.showNotification = true;
-
                   setTimeout(() => {
                     this.showNotification = false;
                   }, 3000);
-
-
             },
             error: (err) => {
               console.log(err)
             }
-
         })
     }
 

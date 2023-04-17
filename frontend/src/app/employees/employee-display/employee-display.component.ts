@@ -34,9 +34,7 @@ export class EmployeeDisplayComponent implements OnInit {
   })
   }
 
-  // getAllEmployees(){
-  //   return this.api.getEmployees()
-  // }
+
 
   getAllEmployees() {
         this.api.getEmployees().subscribe({
@@ -46,7 +44,7 @@ export class EmployeeDisplayComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    // this.getAllEmployees()
+    this.getAllEmployees()
   }
 
   onDelete(employee: Employee) {

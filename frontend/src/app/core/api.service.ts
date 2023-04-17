@@ -17,6 +17,8 @@ export class ApiService {
 
   private TOKEN_KEY = 'token'
 
+  private userInfo = 'user'
+
   GET<DynamicType>(endpoint: string): Observable<DynamicType> {
         return this.http.get<DynamicType>(
             `${BASE_URL}${endpoint}`,
@@ -61,9 +63,15 @@ export class ApiService {
     return this.POST<User>(USER_LOGIN_URL, user);
   }
 
-  //  getOneUser(): Observable<Array<User>> {
-  //   return this.GET<Array<User>>(GET_USER_URL);
-  // }
+   setUserInfo(value: string) {
+        localStorage.setItem(this.userInfo, value)
+    }
+
+     getUserInfo(): User {
+       const theUser =  localStorage.getItem(this.userInfo) || ''
+       const parsedUser = JSON.parse(theUser)
+       return parsedUser
+    }
 
   getCustomers(): Observable<Array<Customer>> {
     return this.GET<Array<Customer>>(CUSTOMER_URL);

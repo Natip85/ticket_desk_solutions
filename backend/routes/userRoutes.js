@@ -84,11 +84,12 @@ router.post('/login', async (req, res)=>{
     }
 
     res.cookie('jwt', token, cookieOptions);
-    res.cookie('user', user)
+    // res.cookie('user', user, cookieOptions)
     
     res.status(200).json({
       status: 'Success',
-      token: token 
+      token: token,
+      user: user
     });
   } catch (err) {
     res.status(400).json({

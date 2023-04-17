@@ -22,10 +22,10 @@
           <td ><a routerLink="/selectedTicket/{{ticket._id}}" class="ticket-link">{{ticket.ticketId}}</a></td>
           <td ><a routerLink="/selectedTicket/{{ticket._id}}" class="ticket-link">{{ticket.subject}}</a></td>
           <td >{{ticket.createdAt | date: 'MMM d, y, h:mm:ss a'}}</td>
-          <td>
+          <td >
             {{ticket.agent}}
           </td>
-          <td>
+          <td [ngClass]="priorityCss(ticket)">
             {{ticket.priority}}
           </td>
           <td>
@@ -54,7 +54,7 @@
           <label for="">Priority</label>
         <select class="filter-select" >
           <option>-</option>
-          <option *ngFor="let priority of priorityOptions">{{priority}}</option>
+          <option  *ngFor="let priority of priorityOptions">{{priority}}</option>
         </select>
         </div>
         <div class="update-btn-wrap">

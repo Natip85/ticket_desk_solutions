@@ -5,4 +5,5 @@ export interface User {
     password?: string | null;
     confirm_password?: string | null;
     token?: string | null;
+    user?: any | null
 }

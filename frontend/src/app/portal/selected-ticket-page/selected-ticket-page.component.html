@@ -60,22 +60,19 @@
         <div class="filter-divs">
           <label for="">Agent</label>
         <select formControlName="agent">
-          <option>-</option>
           <option *ngFor="let agent of agents">{{agent}}</option>
         </select>
         </div>
         <div class="filter-divs">
           <label for="">Status</label>
         <select formControlName="status">
-          <option>-</option>
           <option *ngFor="let status of statusOptions">{{status}}</option>
         </select>
         </div>
         <div class="filter-divs">
           <label for="">Priority</label>
         <select formControlName="priority">
-          <option>-</option>
-          <option *ngFor="let priority of priorityOptions">{{priority}}</option>
+          <option  *ngFor="let priority of priorityOptions">{{priority}}</option>
         </select>
         </div>
         <div class="update-btn-wrap">
