@@ -44,7 +44,7 @@ export class EmployeeDisplayComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.getAllEmployees()
+    // this.getAllEmployees()
   }
 
   onDelete(employee: Employee) {

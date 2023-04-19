@@ -19,7 +19,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getEmployees()
+    // this.api.getEmployees()
   }
 
   search(term:string){

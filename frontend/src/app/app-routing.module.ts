@@ -12,12 +12,14 @@ import { EmployeesPageComponent } from './employees/employees-page/employees-pag
 import { AuthService } from './core/auth.service';
 import { NewTicketComponent } from './portal/new-ticket/new-ticket.component';
 import { SelectedTicketPageComponent } from './portal/selected-ticket-page/selected-ticket-page.component';
+import { UnknownurlPageComponent } from './shared/unknownurl-page/unknownurl-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'signup', component: SignupPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'search/:searchTerm', component: EmployeesPageComponent},
+  {path: '', redirectTo:  '/dashboard', pathMatch: 'full'},
   {
         path: '',
         canActivateChild: [AuthService],
@@ -31,7 +33,8 @@ const routes: Routes = [
           { path: 'newTicket', component: NewTicketComponent },
           { path: 'selectedTicket/:id', component: SelectedTicketPageComponent }
         ]
-    }
+    },
+     {path: '**', component: UnknownurlPageComponent}
 ];
 
 @NgModule({

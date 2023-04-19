@@ -7,6 +7,7 @@ import { TicketNavbarComponent } from './ticket-navbar/ticket-navbar.component';
 import { TitleComponent } from './title/title.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { RouterModule } from '@angular/router';
+import { UnknownurlPageComponent } from './unknownurl-page/unknownurl-page.component';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     SidebarComponent,
     TicketNavbarComponent,
     TitleComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    UnknownurlPageComponent
   ],
   imports: [
     CommonModule,

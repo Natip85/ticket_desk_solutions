@@ -29,6 +29,12 @@ export class TicketNavbarComponent implements OnInit {
         this.showForm2 = !this.showForm2;
     }
 
+    getFirstInitial(){
+      const fInitial = this.api.getUserInfo()
+      const initialName = fInitial.name?.charAt(0)
+      return initialName
+    }
+
     ngOnInit(): void {
     }
 

@@ -35,7 +35,7 @@
     </ul>
 
     <div class="acc-dropdown">
-    <div  (click)="toggleAcc()" class="avatar">N</div>
+    <div  (click)="toggleAcc()" class="avatar">{{getFirstInitial()}}</div>
     <div class="dropdown-wrap" *ngIf="showForm">
           <table>
             <thead>

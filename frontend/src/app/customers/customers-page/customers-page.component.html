@@ -9,8 +9,84 @@
 <app-title [icon]="sectionIcon" [text]="sectionTitle"></app-title>
 
 
+<div class="cust-sub-btn-wrap">
+<button type="button" class="btn cust-submit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa fa-user-plus pe-2"></i>
+    Add a Customer
+</button>
+</div>
 
-<form [formGroup]="addcustomerForm" (ngSubmit)="onSubmit()" class="row mb-4">
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div id="modal-wrap" class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark" id="staticBackdropLabel"><i class="fa fa-user-plus pe-2"></i>
+                    ADD A CUSTOMER</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="cust-form" [formGroup]="addcustomerForm" (ngSubmit)="onSubmit()" (change)="dismissFunc()">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="fName" class="form-control rounded-1" id="floatingInput"
+                            placeholder="Your Name">
+                        <label for="floatingInput"><span class="input-text">First name:</span>
+
+                        </label>
+                    </div>
+                    <app-field-validation [formField]="getFieldControl('fName')"></app-field-validation>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="lName" class="form-control rounded-1" id="floatingInput"
+                            placeholder="Your Name">
+                        <label for="floatingInput"><span class="input-text">Last name:</span>
+
+                        </label>
+                    </div>
+                    <app-field-validation [formField]="getFieldControl('lName')"></app-field-validation>
+                    <div class="form-floating mb-3">
+                        <input type="email" formControlName="email" class="form-control rounded-1" id="floatingInput"
+                            placeholder="name@example.com">
+                        <label for="floatingInput"><span class="input-text">
+                                Email:</span>
+                            <span *ngIf="getFieldControl('email')"></span>
+
+                        </label>
+
+                    </div>
+                    <app-field-validation [formField]="getFieldControl('email')"></app-field-validation>
+                    <div class="form-floating mb-3">
+                        <input type="tel" formControlName="phone" class="form-control rounded-1" id="floatingPassword"
+                            placeholder="Phone number...">
+                        <label for="floatingPassword"><span class="input-text">Phone:</span>
+
+                        </label>
+                    </div>
+                    <app-field-validation [formField]="getFieldControl('phone')"></app-field-validation>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="address" class="form-control rounded-1"
+                            id="floatingPassword" placeholder="Adress...">
+                        <label for="floatingPassword">Adrress:
+
+                        </label>
+                    </div>
+                    <app-field-validation [formField]="getFieldControl('address')"></app-field-validation>
+                    <button [disabled]="addcustomerForm.invalid" class="w-100 mb-2 btn btn-lg rounded-3 modal-submit-btn" (click)="onButtonClick()"
+                        [attr.data-bs-dismiss]="dismissModal" type="submit">Add customer
+                    </button>
+
+                    <!-- <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small> -->
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <form [formGroup]="addcustomerForm" (ngSubmit)="onSubmit()" class="row mb-4">
 
   <div class="input-wrap" >
   <div class="controls-wrap">
@@ -45,7 +121,7 @@
     <button [disabled]="addcustomerForm.invalid" type="submit" class="btn btn-primary w-25 cust-btn"><i class="bi bi-plus-circle-fill"></i>Add customer</button>
   </div>
 
-</form>
+</form> -->
 
 
 <table class="table table-hover">

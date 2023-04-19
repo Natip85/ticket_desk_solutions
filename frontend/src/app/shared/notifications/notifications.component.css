@@ -1,6 +1,9 @@
 .notificationAlert{
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+  top: 100px;
+  right: 50px;
 }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/core/api.service';
 import { Customer } from 'src/app/shared/interfaces/ICustomer';
@@ -13,6 +13,14 @@ export class CustomersPageComponent implements OnInit {
   customers: Array<Customer> = [];
   showNotification = false;
   text = 'Customer sucessfully added!'
+
+  @Output() buttonClicked = new EventEmitter();
+
+  onButtonClick() {
+    this.buttonClicked.emit();
+  }
+
+
 
   addcustomerForm = new FormGroup({
         fName: new FormControl('', {
@@ -50,6 +58,16 @@ export class CustomersPageComponent implements OnInit {
             ]
         })
     })
+
+    dismissModal = '';
+  dismissFunc() {
+    if (this.addcustomerForm.valid) {
+      this.dismissModal = 'modal';
+      console.log(this.dismissModal);
+    } else {
+      this.dismissModal = '';
+    }
+  }
 
     constructor(private api: ApiService){}
 

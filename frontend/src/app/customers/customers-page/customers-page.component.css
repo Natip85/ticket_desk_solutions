@@ -70,3 +70,32 @@ input:focus{
   /* background-color: green; */
   border-radius: .5rem;
 }
+
+
+#modal-wrap{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#cust-form{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.cust-sub-btn-wrap{
+display: flex;
+justify-content: center;
+margin: 50px 50px;
+}
+
+.cust-submit-btn{
+  background-color: #12344D;
+  color: white;
+}
+
+.modal-submit-btn{
+  background-color: #12344D;
+    color: white;
+}
