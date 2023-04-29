@@ -13,9 +13,11 @@ import { AuthService } from './core/auth.service';
 import { NewTicketComponent } from './portal/new-ticket/new-ticket.component';
 import { SelectedTicketPageComponent } from './portal/selected-ticket-page/selected-ticket-page.component';
 import { UnknownurlPageComponent } from './shared/unknownurl-page/unknownurl-page.component';
+import { SolutionsPageComponent } from './home/solutions-page/solutions-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
+  {path: 'solutions', component: SolutionsPageComponent},
   {path: 'signup', component: SignupPageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'search/:searchTerm', component: EmployeesPageComponent},
