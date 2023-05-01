@@ -92,4 +92,6 @@ export class SelectedTicketPageComponent implements OnInit {
       this.showNotification = state;
     }
 
+
+
 }

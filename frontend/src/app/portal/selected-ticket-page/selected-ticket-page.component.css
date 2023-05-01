@@ -14,7 +14,9 @@
 .top-opt-sec{
   padding: 1rem;
   background-color: #F5F7F9;
-  /* background-color: green; */
+  /* background-color: black; */
+  /* opacity: 50%; */
+  /* position: relative; */
 }
 
 .reply-btn,
@@ -160,3 +162,19 @@ span{
   display: flex;
   justify-content: center;
 }
+
+/* .coming-soon{
+  position: absolute;
+  bottom: .5rem;
+  left: 5rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: .4rem;
+  opacity: 25%;
+  background-color: rgb(2, 1, 48);
+  padding: .2rem;
+  border-radius: .5rem;
+  width: 20rem;
+  text-align: center;
+} */

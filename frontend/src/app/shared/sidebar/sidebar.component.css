@@ -41,6 +41,7 @@
   margin-bottom: 2rem;
   border-radius: .2rem;
   padding: 1rem;
+  position: relative;
 }
 
 .sidebar-li:hover{
@@ -68,4 +69,21 @@ i {
 
 .cogwheel{
   opacity: 25%;
+}
+
+.coming-soon {
+  position: absolute;
+  bottom: .2rem;
+  left: -.5rem;
+  color: white;
+  font-size: .5rem;
+  font-weight: bold;
+  /* letter-spacing: .4rem; */
+  opacity: 35%;
+  background-color: rgb(2, 1, 48);
+  padding: .2rem;
+  border-radius: .5rem;
+  width: 4rem;
+  text-align: center;
+  cursor: pointer;
 }
